@@ -25,4 +25,4 @@ models = {
 @app_views.route('/status', methods=['GET'], strict_slashes=False)
 def get_status():
     """Return the server status"""
-    return jsonify(status="OK")
+    return jsonify({"status": "OK"})

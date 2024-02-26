@@ -1,28 +1,7 @@
 #!/usr/bin/python3
-"""Index file for package views"""
+"""Initialisation"""
+from flask import Blueprint
 
-from api.v1.views import app_views
-from flask import jsonify
-from models import storage
-from models.amenity import Amenity
-from models.city import City
-from models.place import Place
-from models.review import Review
-from models.state import State
-from models.user import User
+app_views = Blueprint("app_views", __name__, url_prefix='/api/v1')
 
-
-models = {
-        'amenities': Amenity,
-        'cities': City,
-        'places': Place,
-        'reviews': Review,
-        'users': User,
-        'states': State
-        }
-
-
-@app_views.route('/status', methods=['GET'], strict_slashes=False)
-def get_status():
-    """Return the server status"""
-    return jsonify({"status": "OK"})
+from api.v1.views.index import *
